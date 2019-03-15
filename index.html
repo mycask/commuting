@@ -63,9 +63,9 @@
       var totalTimeElement = document.getElementById('totalTime')
       var workDaysElement = document.getElementById('workDays')
 
-      totalTimeElement.innerHTML = totalHours + ' hours' +
-                                   ' (' + totalDays + ' days)'
-      workDaysElement.innerHTML = workDays + ' days' +
+      totalTimeElement.innerHTML = Math.round(totalHours) + ' hours' +
+                                   ' (' + Math.round(totalDays) + ' days)'
+      workDaysElement.innerHTML = Math.round(workDays) + ' days' +
                                   ' (' + workMonths.toFixed(1) + ' months)'
 
       resultElement.style.display = 'block';
