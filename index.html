@@ -9,6 +9,7 @@
     margin: 2em;
     line-height: 1.5;
     font-family: helvetica, arial, sans-serif;
+    color: #333333;
   }
   label {
     margin-top: 1em;
@@ -29,6 +30,17 @@
   #totalTime, #workDays {
     font-weight: bold;
     color: #cc0000;
+  }
+  .githubLink {
+    margin-top: 2em;
+  }
+  a:link, a:visited {
+    text-decoration: none;
+    color: #0000cc;
+  }
+  a:hover, a:active {
+    text-decoration: underline;
+    color: #000099;
   }
   </style>
   <script>
@@ -86,6 +98,10 @@
     <strong>How many days of work you can do in this much time:</strong><br>
     <span id="workDays"></span>
   </p>
+
+  <div class="githubLink">
+    [<a href="https://github.com/mycask/commuting">Source Code on GitHub</a>]
+  </div>
 </div>
 
 </body>
