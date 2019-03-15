@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Commute Time</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <style>
+  body {
+    margin: 2em;
+    line-height: 1.5;
+    font-family: helvetica, arial, sans-serif;
+  }
+  label {
+    margin-top: 1em;
+    display: block;
+    font-weight: bold;
+  }
+  input, button {
+    font-size: 1em;
+    padding: 0.5em;
+  }
+  button {
+    margin-top: 2em;
+    display: block;
+  }
+  #result {
+    margin-top: 2em;
+  }
+  #totalTime, #workDays {
+    font-weight: bold;
+    color: #cc0000;
+  }
+  </style>
+  <script>
+  window.onload = function () {
+    var buttonElement = document.getElementById('button')
+    var resultElement = document.getElementById('result')
+
+    resultElement.style.display = 'none';
+
+    buttonElement.onclick = function () {
+      var commuteTime = parseInt(document.getElementById('commuteTime').value)
+      var daysPerWeek = parseInt(document.getElementById('daysPerWeek').value)
+      var workingHours = parseInt(document.getElementById('workingHours').value)
+
+      var totalHours = commuteTime * daysPerWeek * 52 / 60;
+      var totalDays = Math.round(totalHours / 24)
+      var workDays = Math.round(totalHours / workingHours)
+      var workMonths = workDays / 30
+
+      var totalTimeElement = document.getElementById('totalTime')
+      var workDaysElement = document.getElementById('workDays')
+
+      totalTimeElement.innerHTML = totalHours + ' hours' +
+                                   ' (' + totalDays + ' days)'
+      workDaysElement.innerHTML = workDays + ' days' +
+                                  ' (' + workMonths.toFixed(1) + ' months)'
+
+      resultElement.style.display = 'block';
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div>
+  <label for="commuteTime">What is your commute time both ways (in minutes)?</label>
+  <input id="commuteTime" name="commuteTime" value="60" required>
+
+  <label for="daysPerWeek">How many days do you commute to office?</label>
+  <input id="daysPerWeek" name="daysPerWeek" value="3" required>
+
+  <label for="workingHours">How many hours do you work in a day on an average?</label>
+  <input id="workingHours" name="workingHours" value="8" required>
+
+  <button id="button">Click here!</button>
+</div>
+
+<div id="result">
+  <p>
+    <strong>How much time you spend commuting in a year:</strong><br>
+    <span id="totalTime"></span>
+  </p>
+
+  <p>
+    <strong>How many days of work you can do in this much time:</strong><br>
+    <span id="workDays"></span>
+  </p>
+</div>
+
+</body>
+</html>
